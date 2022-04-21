@@ -29,7 +29,7 @@ import java.util.*;
  */
 public class ExpressionBuilder {
 
-    private final String expression;
+    private String expression;
 
     private final Map<String, Function> userFunctions;
 
@@ -52,6 +52,17 @@ public class ExpressionBuilder {
         this.userOperators = new HashMap<>(4);
         this.userFunctions = new HashMap<>(4);
         this.variableNames = new HashSet<>(4);
+    }
+
+    /**
+     * Set a new expression that can make use of current variables
+     *
+     * @param expression The new expression
+     * @return the ExpressionBuilder instance
+     */
+    public ExpressionBuilder expression(String expression){
+        this.expression = expression;
+        return this;
     }
 
     /**
